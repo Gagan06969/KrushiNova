@@ -7,3 +7,4 @@ ultralytics
 gpiozero
 numpy
 python-dotenv
+gunicorn

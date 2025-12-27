@@ -44,10 +44,12 @@ def init_hardware():
 
 def generate_frames():
     """Video streaming generator function."""
+    print("Starting video feed generator...")
     init_hardware()
     while True:
         frame = camera.get_frame()
         if frame is None:
+            print("Frame is None, stopping stream.")
             break
 
         # Run Detection

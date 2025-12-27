@@ -10,8 +10,9 @@ export default function Login({ onLogin }) {
     e.preventDefault();
     setLoading(true);
     try {
-      // In a real app, use env var for URL
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
+      // Use env var for production, fallback to localhost for dev
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const res = await fetch(`${API_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { io } from 'socket.io-client';
 
-const SOCKET_URL = import.meta.env.VITE_API_URL;
+const SOCKET_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 export default function Dashboard({ token, onLogout }) {
   const [socket, setSocket] = useState(null);
@@ -75,7 +75,11 @@ export default function Dashboard({ token, onLogout }) {
               src={`${SOCKET_URL}/video_feed`} 
               alt="Rover Feed" 
               className="w-full h-full object-cover"
-              onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='flex'}} 
+              onError={(e) => {
+                console.error("Video Feed Error:", e);
+                // e.target.style.display='none'; 
+                // e.target.nextSibling.style.display='flex'
+              }} 
             />
             <div className="hidden absolute inset-0 flex items-center justify-center bg-slate-800 text-slate-500">
                Camera Offline
