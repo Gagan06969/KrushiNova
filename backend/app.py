@@ -103,6 +103,10 @@ def automation_loop():
 def video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route('/')
+def index():
+    return "Rover Backend Online. <br> <a href='/video_feed'>View Raw Video Feed</a>"
+
 @app.route('/api/login', methods=['POST'])
 def login():
     data = request.json
@@ -128,4 +132,4 @@ def test_connect():
         is_running = True
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5000, debug=False)
+    socketio.run(app, host='0.0.0.0', port=5001, debug=False)

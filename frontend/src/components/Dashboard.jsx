@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { io } from 'socket.io-client';
 
-const SOCKET_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const SOCKET_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
 
 export default function Dashboard({ token, onLogout }) {
   const [socket, setSocket] = useState(null);
