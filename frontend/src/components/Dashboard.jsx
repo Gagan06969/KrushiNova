@@ -86,8 +86,13 @@ export default function Dashboard({ token, onLogout }) {
             </div>
             
             {/* Overlay UI */}
-             <div className="absolute top-2 right-2 bg-black/50 px-2 py-1 rounded text-xs">
-                LIVE
+             <div className="absolute top-2 right-2 flex flex-col items-end gap-1">
+                <div className="bg-red-600/80 px-2 py-1 rounded text-xs font-bold animate-pulse">
+                  LIVE
+                </div>
+                <div className="bg-black/50 px-2 py-1 rounded text-[10px] text-gray-300 backdrop-blur-sm">
+                  {SOCKET_URL}
+                </div>
              </div>
           </div>
 

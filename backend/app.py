@@ -47,10 +47,12 @@ def generate_frames():
     print("Starting video feed generator...")
     init_hardware()
     while True:
+        print("Grabbing frame...", flush=True)
         frame = camera.get_frame()
         if frame is None:
-            print("Frame is None, stopping stream.")
+            print("Frame is None! Stopping stream.", flush=True)
             break
+        print(f"Frame captured.", flush=True)
 
         # Run Detection
         detections = detector.detect(frame)
